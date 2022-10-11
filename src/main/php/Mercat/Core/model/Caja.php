@@ -13,10 +13,10 @@ use Cose\utils\Logger;
 /**
  * Caja
  * 
- * @Entity @Table(name="cts_caja")
+ * @Entity @Table(name="mercat_caja")
  * 
- * @author Bernardo
- * @since 22-05-2014
+ * @author Marcos
+ * @since 11-10-2022
  */
 
 class Caja extends Cuenta{
