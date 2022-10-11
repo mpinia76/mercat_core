@@ -16,7 +16,7 @@ use Cose\utils\Logger;
  * @Entity @Table(name="mercat_cuenta")
  * @InheritanceType("JOINED")
  * @DiscriminatorColumn(name="discr", type="string")
- * @DiscriminatorMap({"cta_cte" = "CuentaCorriente", "caja" = "Caja", "banco" = "Banco", "tarjeta" = "Tarjeta"}) 
+ * @DiscriminatorMap({"cta_cte" = "CuentaCorriente", "caja" = "Caja", "banco" = "Banco", "tarjeta" = "Tarjeta", "caja_chica" = "CajaChica"})
  * 
  * 
  * @author Marcos

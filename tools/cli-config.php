@@ -19,10 +19,10 @@ $config = \Doctrine\ORM\Tools\Setup::createAnnotationMetadataConfiguration( $pat
 
 $connectionOptions = array(
       'driver'   => 'pdo_mysql',
-				    'host'     => "163.10.35.34",
+				    'host'     => "localhost",
 					'dbname'   => "cose_mercat",
 				    'user'     => "root",
-				    'password' => "secyt"
+				    'password' => ""
 );
 
 $em = \Doctrine\ORM\EntityManager::create($connectionOptions, $config);

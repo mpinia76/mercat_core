@@ -19,85 +19,14 @@ class Cliente extends Entity{
 
 	//variables de instancia.
 
-	/**
-	 * @Column(type="string")
-	 * @var string
-	 */
-	private $nombre;
-	
-	 /**
-	 * @Column(type="integer", nullable=true)
-	 * @var unknown_type
-	 */
-    private $tipoCliente;
-	
-	/**
-	 * @Column(type="integer", nullable=true)
-	 * @var unknown_type
-	 */
-    private $tipoDocumento;
-    
-   
-    
-    /**
-	 * @Column(type="string", length=10)
-	 */
-	private $documento;
+
 	
 	 /**
 	 * @Column(type="string", length=13)
 	 */
 	private $cuit;
 	
-	/**
-	 * @Column(type="integer", nullable=true)
-	 * @var unknown_type
-	 */
-	private $sexo;
-	
-	/**
-	 * @Column(type="string")
-	 * @var string
-	 */
-	private $mail;
-	
-	/**
-	 * @Column(type="string", nullable=true)
-	 * @var string
-	 */
-	private $telefono;
-	
-	/**
-	 * @Column(type="string", nullable=true)
-	 * @var string
-	 */
-	private $celular;
-	
-	/**
-	 * @Column(type="string", nullable=true)
-	 * @var string
-	 */
-	private $laboral;
-	
-	/**
-     * @ManyToOne(targetEntity="Mercat\Core\model\Localidad",cascade={"detach"})
-     * @JoinColumn(name="localidad_oid", referencedColumnName="oid")
-     * 
-     * localidad
-     **/
-    private $localidad;
-	
-	/**
-	 * @Column(type="string", nullable=true)
-	 * @var string
-	 */
-	private $direccion;
-	
-	/**
-	 * @Column(type="date", nullable=true)
-	 * @var \Date
-	 */
-	private $nacimiento;
+
 	
 	/**
 	 * @Column(type="datetime")
@@ -111,11 +40,7 @@ class Cliente extends Entity{
 	 */
 	private $ultModificacion;
 	
-	/**
-	 * @Column(type="text", nullable=true)
-	 * @var string
-	 */
-	private $observaciones;
+
 	
 	
 	/**
@@ -127,174 +52,74 @@ class Cliente extends Entity{
 		
 	public function __construct(){
 	}
+
+    /**
+     * @return mixed
+     */
+    public function getCuit()
+    {
+        return $this->cuit;
+    }
+
+    /**
+     * @param mixed $cuit
+     */
+    public function setCuit($cuit)
+    {
+        $this->cuit = $cuit;
+    }
+
+    /**
+     * @return \Datetime
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    /**
+     * @param \Datetime $fecha
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+    }
+
+    /**
+     * @return \Datetime
+     */
+    public function getUltModificacion()
+    {
+        return $this->ultModificacion;
+    }
+
+    /**
+     * @param \Datetime $ultModificacion
+     */
+    public function setUltModificacion($ultModificacion)
+    {
+        $this->ultModificacion = $ultModificacion;
+    }
+
+    /**
+     * @return CuentaCorriente
+     */
+    public function getCuentaCorriente()
+    {
+        return $this->cuentaCorriente;
+    }
+
+    /**
+     * @param CuentaCorriente $cuentaCorriente
+     */
+    public function setCuentaCorriente($cuentaCorriente)
+    {
+        $this->cuentaCorriente = $cuentaCorriente;
+    }
 	
-	public function __toString(){
-		 return $this->getNombre();
-	}
 
 
 
-	
-
-	public function getNombre()
-	{
-	    return $this->nombre;
-	}
-
-	public function setNombre($nombre)
-	{
-	    $this->nombre = $nombre;
-	}
-
-	public function getTipoDocumento()
-	{
-	    return $this->tipoDocumento;
-	}
-
-	public function setTipoDocumento($tipoDocumento)
-	{
-	    $this->tipoDocumento = $tipoDocumento;
-	}
-
-	public function getDocumento()
-	{
-	    return $this->documento;
-	}
-
-	public function setDocumento($documento)
-	{
-	    $this->documento = $documento;
-	}
-
-	public function getCuit()
-	{
-	    return $this->cuit;
-	}
-
-	public function setCuit($cuit)
-	{
-	    $this->cuit = $cuit;
-	}
-
-	public function getSexo()
-	{
-	    return $this->sexo;
-	}
-
-	public function setSexo($sexo)
-	{
-	    $this->sexo = $sexo;
-	}
-
-	public function getMail()
-	{
-	    return $this->mail;
-	}
-
-	public function setMail($mail)
-	{
-	    $this->mail = $mail;
-	}
-
-	public function getTelefono()
-	{
-	    return $this->telefono;
-	}
-
-	public function setTelefono($telefono)
-	{
-	    $this->telefono = $telefono;
-	}
-
-	public function getCelular()
-	{
-	    return $this->celular;
-	}
-
-	public function setCelular($celular)
-	{
-	    $this->celular = $celular;
-	}
-
-	public function getLaboral()
-	{
-	    return $this->laboral;
-	}
-
-	public function setLaboral($laboral)
-	{
-	    $this->laboral = $laboral;
-	}
-
-	public function getLocalidad()
-	{
-	    return $this->localidad;
-	}
-
-	public function setLocalidad($localidad)
-	{
-	    $this->localidad = $localidad;
-	}
-
-	public function getDireccion()
-	{
-	    return $this->direccion;
-	}
-
-	public function setDireccion($direccion)
-	{
-	    $this->direccion = $direccion;
-	}
-
-	public function getNacimiento()
-	{
-	    return $this->nacimiento;
-	}
-
-	public function setNacimiento($nacimiento)
-	{
-	    $this->nacimiento = $nacimiento;
-	}
-
-	public function getFecha()
-	{
-	    return $this->fecha;
-	}
-
-	public function setFecha($fecha)
-	{
-	    $this->fecha = $fecha;
-	}
-
-	public function getUltModificacion()
-	{
-	    return $this->ultModificacion;
-	}
-
-	public function setUltModificacion($ultModificacion)
-	{
-	    $this->ultModificacion = $ultModificacion;
-	}
-
-	public function getObservaciones()
-	{
-	    return $this->observaciones;
-	}
-
-	public function setObservaciones($observaciones)
-	{
-	    $this->observaciones = $observaciones;
-	}
-
-	public function getCuentaCorriente()
-	{
-	    return $this->cuentaCorriente;
-	}
-
-	public function setCuentaCorriente($cuentaCorriente)
-	{
-	    $this->cuentaCorriente = $cuentaCorriente;
-	}
 	
 	public function getSaldo(){
 		
@@ -315,14 +140,6 @@ class Cliente extends Entity{
 		return (!empty($ctacte));
 	}
 
-	public function getTipoCliente()
-	{
-	    return $this->tipoCliente;
-	}
 
-	public function setTipoCliente($tipoCliente)
-	{
-	    $this->tipoCliente = $tipoCliente;
-	}
 }
 ?>
