@@ -19,6 +19,7 @@ use Mercat\Core\dao\impl\TipoProductoDoctrineDAO;
 use Mercat\Core\dao\impl\ProvinciaDoctrineDAO;
 use Mercat\Core\dao\impl\LocalidadDoctrineDAO;
 use Mercat\Core\dao\impl\ClienteDoctrineDAO;
+use Mercat\Core\dao\impl\EmpleadoDoctrineDAO;
 
 use Mercat\Core\dao\impl\ConceptoGastoDoctrineDAO;
 use Mercat\Core\dao\impl\ConceptoMovimientoDoctrineDAO;
@@ -147,8 +148,16 @@ class DAOFactory {
 	
 		return new ClienteDoctrineDAO();	
 	}
-	
-	
+
+    /**
+     * DAO para Empleado.
+     *
+     * @return IEmpleado
+     */
+    public static function getEmpleadoDAO(){
+
+        return new EmpleadoDoctrineDAO();
+    }
 	
 	/**
 	 * DAO para ConceptoGasto.

@@ -41,7 +41,29 @@ class Empleado extends Persona{
 	 * 
 	 * (para la antiguedad)
 	 */
-	private $fechaIngreso;
+	private $fecha;
+
+    /**
+     * @Column(type="datetime", options={"default"="CURRENT_TIMESTAMP"})
+     * @var \Datetime
+     */
+    private $ultModificacion;
+
+    /**
+     * @return \Datetime
+     */
+    public function getUltModificacion()
+    {
+        return $this->ultModificacion;
+    }
+
+    /**
+     * @param \Datetime $ultModificacion
+     */
+    public function setUltModificacion($ultModificacion)
+    {
+        $this->ultModificacion = $ultModificacion;
+    }
 	
 	/*
 	 * para liquidación sueldo:
@@ -90,14 +112,14 @@ class Empleado extends Persona{
 	    $this->cuil = $cuil;
 	}
 
-	public function getFechaIngreso()
+	public function getFecha()
 	{
-	    return $this->fechaIngreso;
+	    return $this->fecha;
 	}
 
-	public function setFechaIngreso($fechaIngreso)
+	public function setFecha($fecha)
 	{
-	    $this->fechaIngreso = $fechaIngreso;
+	    $this->fecha = $fecha;
 	}
 
     public function getUser()

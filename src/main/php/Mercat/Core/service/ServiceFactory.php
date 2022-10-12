@@ -20,6 +20,7 @@ use Mercat\Core\service\impl\ConceptoMovimientoServiceImpl;
 use Mercat\Core\service\impl\ProvinciaServiceImpl;
 use Mercat\Core\service\impl\LocalidadServiceImpl;
 use Mercat\Core\service\impl\ClienteServiceImpl;
+use Mercat\Core\service\impl\EmpleadoServiceImpl;
 
 
 use Mercat\Core\service\impl\ProductoServiceImpl;
@@ -165,8 +166,16 @@ class ServiceFactory {
 	
 		return new ClienteServiceImpl();	
 	}
-	
-	
+
+    /**
+     * Service para Empleado.
+     *
+     * @return IEmpleadoService
+     */
+    public static function getEmpleadoService(){
+
+        return new EmpleadoServiceImpl();
+    }
 	
 	
 	

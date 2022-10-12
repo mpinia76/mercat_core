@@ -34,7 +34,7 @@ abstract class Persona extends Entity{
 	 * @var string
 	 */
 	
-	private $email;
+	private $mail;
 	
 
 	/**
@@ -49,13 +49,14 @@ abstract class Persona extends Entity{
 	 * @var string
 	 */
 	private $celular;
+    
 	
 	
 	/**
 	 * @Column(type="string", nullable=true)
 	 * @var string
 	 */
-	private $domicilio;
+	private $direccion;
 	
 	
 	/**
@@ -68,7 +69,7 @@ abstract class Persona extends Entity{
 	 * @Column(type="string", nullable=true)
 	 *  
 	 **/
-	private $nroDocumento;
+	private $documento;
 
 	/**
 	 * @Column(type="integer", nullable=true)
@@ -119,14 +120,14 @@ abstract class Persona extends Entity{
 	    $this->apellido = $apellido;
 	}
 
-	public function getEmail()
+	public function getMail()
 	{
-	    return $this->email;
+	    return $this->mail;
 	}
 
-	public function setEmail($email)
+	public function setMail($mail)
 	{
-	    $this->email = $email;
+	    $this->mail = $mail;
 	}
 
 	public function getTelefono()
@@ -149,14 +150,14 @@ abstract class Persona extends Entity{
 	    $this->celular = $celular;
 	}
 
-	public function getDomicilio()
+	public function getDireccion()
 	{
-	    return $this->domicilio;
+	    return $this->direccion;
 	}
 
-	public function setDomicilio($domicilio)
+	public function setDireccion($direccion)
 	{
-	    $this->domicilio = $domicilio;
+	    $this->direccion = $direccion;
 	}
 
 	public function getObservaciones()
@@ -169,14 +170,14 @@ abstract class Persona extends Entity{
 	    $this->observaciones = $observaciones;
 	}
 
-	public function getNroDocumento()
+	public function getDocumento()
 	{
-	    return $this->nroDocumento;
+	    return $this->documento;
 	}
 
-	public function setNroDocumento($nroDocumento)
+	public function setDocumento($documento)
 	{
-	    $this->nroDocumento = $nroDocumento;
+	    $this->documento = $documento;
 	}
 
 	public function getTipoDocumento()

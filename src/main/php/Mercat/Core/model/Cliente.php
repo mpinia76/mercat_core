@@ -6,6 +6,7 @@ use Cose\model\impl\Entity;
 
 
 use Cose\utils\Logger;
+use Mercat\Core\model\Persona;
 
 /**
  * Cliente
@@ -15,7 +16,7 @@ use Cose\utils\Logger;
  * @author Marcos
  */
 
-class Cliente extends Entity{
+class Cliente extends Persona{
 
 	//variables de instancia.
 
