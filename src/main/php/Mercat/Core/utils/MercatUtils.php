@@ -44,6 +44,8 @@ class MercatUtils {
 
 	const MERCAT_CONCEPTO_GASTO_VARIOS = 1;
 
+    const MERCAT_CUENTA_CAJA_CHICA = 1;
+
 	const MERCAT_CONCEPTO_MOVIMIENTO_GASTO= 2;
 	const MERCAT_CONCEPTO_MOVIMIENTO_ANULACIONGASTO= 3;
 	const MERCAT_CONCEPTO_MOVIMIENTO_VENTA= 4;
@@ -55,6 +57,10 @@ class MercatUtils {
 	const MERCAT_CONCEPTO_MOVIMIENTO_ANULACIONCOMISIONVENTA= 10;
 	const MERCAT_CONCEPTO_MOVIMIENTO_PEDIDO= 11;
 	const MERCAT_CONCEPTO_MOVIMIENTO_ANULACIONPEDIDO= 12;
+    const MERCAT_CONCEPTO_MOVIMIENTO_RETIROEFECTIVO= 13;
+    const MERCAT_CONCEPTO_MOVIMIENTO_ANULACIONRETIROEFECTIVO= 14;
+    const MERCAT_CONCEPTO_MOVIMIENTO_TRANSFERENCIA= 15;
+    const MERCAT_CONCEPTO_MOVIMIENTO_ANULACIONTRANSFERENCIA= 16;
 
 
 
@@ -68,6 +74,12 @@ class MercatUtils {
     const MERCAT_VENDEDOR_MELISA = 2;
 
 	const MERCAT_PROVEEDOR_DEFAULT = 1;
+
+
+    const MERCAT_USERGROUP_EMPLEADO = 2;
+
+    const MERCAT_EMPLEADO_DEFAULT = 5;
+
 
 	const MERCAT_ID_DOLAR = 1;
 	const MERCAT_ID_PORCENTAJE_PRECIO_LISTA = 2;
@@ -85,6 +97,14 @@ class MercatUtils {
 		return $user->hasUsergroup( $usergroup );
 
 	}
+
+    public static function isEmpleado( User $user ){
+
+        $usergroup = new Usergroup();
+        $usergroup->setOid(self::MERCAT_USERGROUP_EMPLEADO);
+        return $user->hasUsergroup( $usergroup );
+
+    }
 
 	/**
 	 * se formatea un monto a visualizar
@@ -751,6 +771,11 @@ class MercatUtils {
 		}
 	}
 
+    public static function getCuentaCajaChica(){
+
+        return ServiceFactory::getCajaChicaService()->get( self::MERCAT_CUENTA_CAJA_CHICA );
+    }
+
 	public static function getConceptoGastoVarios(){
 
 		return ServiceFactory::getConceptoGastoService()->get( self::MERCAT_CONCEPTO_GASTO_VARIOS );
@@ -811,6 +836,26 @@ class MercatUtils {
 		return ServiceFactory::getConceptoMovimientoService()->get( self::MERCAT_CONCEPTO_MOVIMIENTO_ANULACIONPEDIDO );
 	}
 
+    public static function getConceptoMovimientoRetiroEfectivo(){
+
+        return ServiceFactory::getConceptoMovimientoService()->get( self::MERCAT_CONCEPTO_MOVIMIENTO_RetiroEfectivo );
+    }
+
+    public static function getConceptoMovimientoAnulacionRetiroEfectivo(){
+
+        return ServiceFactory::getConceptoMovimientoService()->get( self::MERCAT_CONCEPTO_MOVIMIENTO_ANULACIONRetiroEfectivo );
+    }
+
+    public static function getConceptoMovimientoTransferencia(){
+
+        return ServiceFactory::getConceptoMovimientoService()->get( self::MERCAT_CONCEPTO_MOVIMIENTO_TRANSFERENCIA );
+    }
+
+    public static function getConceptoMovimientoAnulacionTransferencia(){
+
+        return ServiceFactory::getConceptoMovimientoService()->get( self::MERCAT_CONCEPTO_MOVIMIENTO_ANULACIONTRANSFERENCIA );
+    }
+
 
 	public static function getCuentaUnica(){
 
@@ -869,6 +914,11 @@ class MercatUtils {
             self::log("Error del init del curl del envío a Whatsapp Mensaje: ".$message) ;
             return false;
         }
+    }
+
+    public static function getEmpleadoDefault(){
+
+        return ServiceFactory::getEmpleadoService()->get( self::MERCAT_EMPLEADO_DEFAULT );
     }
 
 

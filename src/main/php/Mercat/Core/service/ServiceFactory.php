@@ -36,6 +36,7 @@ use Mercat\Core\service\impl\MovimientoCajaServiceImpl;
 use Mercat\Core\service\impl\CuentaCorrienteServiceImpl;
 use Mercat\Core\service\impl\BancoServiceImpl;
 use Mercat\Core\service\impl\CajaServiceImpl;
+use Mercat\Core\service\impl\CajaChicaServiceImpl;
 use Mercat\Core\service\impl\PagoServiceImpl;
 use Mercat\Core\service\impl\MovimientoPagoServiceImpl;
 use Mercat\Core\service\impl\TarjetaServiceImpl;
@@ -63,6 +64,14 @@ use Mercat\Core\service\impl\PedidoServiceImpl;
 use Mercat\Core\service\impl\ProveedorServiceImpl;
 
 use Mercat\Core\service\impl\MovimientoPedidoServiceImpl;
+
+use Mercat\Core\service\impl\TransferenciaServiceImpl;
+
+use Mercat\Core\service\impl\MovimientoTransferenciaServiceImpl;
+
+use Mercat\Core\service\impl\InformeDiarioDebitoCreditoServiceImpl;
+
+use Mercat\Core\service\impl\InformeSemanalServiceImpl;
 
 class ServiceFactory {
 
@@ -176,12 +185,33 @@ class ServiceFactory {
 
         return new EmpleadoServiceImpl();
     }
-	
-	
-	
-	
-	
-	/**
+
+
+    /**
+     * Service para InformeSemanal.
+     *
+     * @return IInformeSemanalService
+     */
+    public static function getInformeSemanalService(){
+
+        return new InformeSemanalServiceImpl();
+    }
+
+
+
+    /**
+     * Service para InformeDiarioDebitoCredito.
+     *
+     * @return IInformeDiarioDebitoCreditoService
+     */
+    public static function getInformeDiarioDebitoCreditoService(){
+
+        return new InformeDiarioDebitoCreditoServiceImpl();
+    }
+
+
+
+    /**
 	 * Service para Producto.
 	 * 
 	 * @return IProductoService
@@ -292,6 +322,16 @@ class ServiceFactory {
 	
 		return new CajaServiceImpl();	
 	}
+
+    /**
+     * Service para CajaChica.
+     *
+     * @return IMovimientoCuentaService
+     */
+    public static function getCajaChicaService(){
+
+        return new CajaChicaServiceImpl();
+    }
 	
 	/**
 	 * Service para Pago.
@@ -437,7 +477,7 @@ class ServiceFactory {
 	}
 
 	/**
-	 * Service para MovimientoGasto.
+	 * Service para MovimientoPedido.
 	 * 
 	 * @return IMovimientoPedidoService
 	 */
@@ -445,5 +485,25 @@ class ServiceFactory {
 	
 		return new MovimientoPedidoServiceImpl();	
 	}
+
+    /**
+     * Service para Transferencia.
+     *
+     * @return ITransferenciaService
+     */
+    public static function getTransferenciaService(){
+
+        return new TransferenciaServiceImpl();
+    }
+
+    /**
+     * Service para MovimientoTransferencia.
+     *
+     * @return IMovimientoTransferenciaService
+     */
+    public static function getMovimientoTransferenciaService(){
+
+        return new MovimientoTransferenciaServiceImpl();
+    }
 	
 }

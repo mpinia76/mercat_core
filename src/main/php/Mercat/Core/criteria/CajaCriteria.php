@@ -4,17 +4,19 @@ namespace Mercat\Core\criteria;
 use Cose\criteria\impl\Criteria;
 
 /**
- * criteria de caja chica
+ * criteria de caja
  *  
  * @author Marcos
- * @since 21-03-2018
+ * @since 12-10-2022
  *
  */
-class CajaCriteria extends CuentaCriteria{
+class CajaCriteria extends Criteria{
 
 	private $oidNotEqual;
 	
 	private $numero;
+	
+	private $cajero;
 	
 	private $fecha;
 
@@ -22,19 +24,10 @@ class CajaCriteria extends CuentaCriteria{
 	
 	private $fechaHasta;
 
+	private $abierta;
+	
 	private $sucursal;
-
-
-	public function getOidNotEqual()
-	{
-	    return $this->oidNotEqual;
-	}
-
-	public function setOidNotEqual($oidNotEqual)
-	{
-	    $this->oidNotEqual = $oidNotEqual;
-	}
-
+	
 	public function getNumero()
 	{
 	    return $this->numero;
@@ -43,6 +36,16 @@ class CajaCriteria extends CuentaCriteria{
 	public function setNumero($numero)
 	{
 	    $this->numero = $numero;
+	}
+
+	public function getCajero()
+	{
+	    return $this->cajero;
+	}
+
+	public function setCajero($cajero)
+	{
+	    $this->cajero = $cajero;
 	}
 
 	public function getFecha()
@@ -75,13 +78,33 @@ class CajaCriteria extends CuentaCriteria{
 	    $this->fechaHasta = $fechaHasta;
 	}
 
-	public function getSucursal()
+	public function getOidNotEqual()
 	{
-	    return $this->sucursal;
+	    return $this->oidNotEqual;
 	}
 
-	public function setSucursal($sucursal)
+	public function setOidNotEqual($oidNotEqual)
 	{
-	    $this->sucursal = $sucursal;
+	    $this->oidNotEqual = $oidNotEqual;
 	}
+
+    public function getAbierta()
+    {
+        return $this->abierta;
+    }
+
+    public function setAbierta($abierta)
+    {
+        $this->abierta = $abierta;
+    }
+
+    public function getSucursal()
+    {
+        return $this->sucursal;
+    }
+
+    public function setSucursal($sucursal)
+    {
+        $this->sucursal = $sucursal;
+    }
 }

@@ -6,12 +6,12 @@ use Cose\exception\DAOException;
 use Cose\Crud\dao\ICrudDAO;
 
 /**
- * Interface del DAO de Caja
+ * Interface del DAO de IInformeDiarioDebitoCredito
  *  
  * @author Marcos
  * @since 12-10-2022
  *
  */
-interface ICajaDAO extends ICrudDAO {
+interface IInformeDiarioDebitoCreditoDAO extends ICrudDAO {
 
 }

@@ -1,9 +1,9 @@
 <?php
 namespace Mercat\Core\dao\impl;
 
-use Mercat\Core\dao\ICajaDAO;
+use Mercat\Core\dao\ICajaChicaDAO;
 
-use Mercat\Core\model\Caja;
+use Mercat\Core\model\CajaChica;
 
 use Cose\Crud\dao\impl\CrudDAO;
 
@@ -12,26 +12,24 @@ use Cose\criteria\ICriteria;
 use Cose\exception\DAOException;
 use Doctrine\ORM\QueryBuilder;
 /**
- * dao para Caja
+ * dao para CajaChica
  *  
  * @author Marcos
- * @since 10-12-2022
+ * @since 12-10-2022
  * 
  */
-class CajaDoctrineDAO extends CrudDAO implements ICajaDAO{
+class CajaChicaDoctrineDAO extends CrudDAO implements ICajaChicaDAO{
 	
 	protected function getClazz(){
-		return get_class( new Caja() );
+		return get_class( new CajaChica() );
 	}
 	
 	protected function getQueryBuilder(ICriteria $criteria){
 		
 		$queryBuilder = $this->getEntityManager()->createQueryBuilder();
 		
-		$queryBuilder->select(array('c', 'caje'))
-	   				->from( $this->getClazz(), "c")
-
-					->leftJoin('c.cajero', 'caje');
+		$queryBuilder->select(array('c', 's'))
+	   				->from( $this->getClazz(), "c");
 		
 		return $queryBuilder;
 	}
@@ -41,9 +39,7 @@ class CajaDoctrineDAO extends CrudDAO implements ICajaDAO{
 		$queryBuilder = $this->getEntityManager()->createQueryBuilder();
 		
 		$queryBuilder->select('count(c.oid)')
-	   				->from( $this->getClazz(), "c")
-
-					->leftJoin('c.cajero', 'caje');
+	   				->from( $this->getClazz(), "c");
 								
 		return $queryBuilder;
 	}
@@ -75,19 +71,8 @@ class CajaDoctrineDAO extends CrudDAO implements ICajaDAO{
 			$queryBuilder->andWhere( "c.fecha <= '" . $fechaHasta->format("Y-m-d") . "'");
 		}
 				
-		$cajero = $criteria->getCajero();
-		if( !empty($cajero) && $cajero!=null){
-			$cajeroOid = $cajero->getOid();
-			if(!empty($cajeroOid))
-				$queryBuilder->andWhere( "caje.oid= $cajeroOid" );
-		}
-				
 
 		
-		$abierta = $criteria->getAbierta();
-		if( $abierta ){
-			$queryBuilder->andWhere( "c.horaCierre is null");
-		}
 		
 	}	
 	

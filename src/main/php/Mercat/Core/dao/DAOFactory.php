@@ -13,7 +13,9 @@ use Mercat\Core\dao\impl\MarcaProductoDoctrineDAO;
 use Mercat\Core\dao\impl\IvaDoctrineDAO;
 use Mercat\Core\dao\impl\TipoProductoDoctrineDAO;
 
+use Mercat\Core\dao\impl\InformeDiarioDebitoCreditoDoctrineDAO;
 
+use Mercat\Core\dao\impl\InformeSemanalDoctrineDAO;
 
 
 use Mercat\Core\dao\impl\ProvinciaDoctrineDAO;
@@ -37,6 +39,7 @@ use Mercat\Core\dao\impl\MovimientoVentaDoctrineDAO;
 use Mercat\Core\dao\impl\CuentaCorrienteDoctrineDAO;
 use Mercat\Core\dao\impl\BancoDoctrineDAO;
 use Mercat\Core\dao\impl\CajaDoctrineDAO;
+use Mercat\Core\dao\impl\CajaChicaDoctrineDAO;
 use Mercat\Core\dao\impl\PagoDoctrineDAO;
 use Mercat\Core\dao\impl\MovimientoPagoDoctrineDAO;
 use Mercat\Core\dao\impl\TarjetaDoctrineDAO;
@@ -64,6 +67,10 @@ use Mercat\Core\dao\impl\PedidoDoctrineDAO;
 use Mercat\Core\dao\impl\ProveedorDoctrineDAO;
 
 use Mercat\Core\dao\impl\MovimientoPedidoDoctrineDAO;
+
+use Mercat\Core\dao\impl\TransferenciaDoctrineDAO;
+
+use Mercat\Core\dao\impl\MovimientoTransferenciaDoctrineDAO;
 
 class DAOFactory {
 
@@ -110,11 +117,32 @@ class DAOFactory {
 	
 		return new TipoProductoDoctrineDAO();	
 	}
-	
-	
-	
-	
-	
+
+
+
+
+    /**
+     * DAO para InformeSemanal.
+     *
+     * @return IInformeSemanalDAO
+     */
+    public static function getInformeSemanalDAO(){
+
+        return new InformeSemanalDoctrineDAO();
+    }
+
+
+
+
+    /**
+     * DAO para InformeDiarioDebitoCredito.
+     *
+     * @return IInformeDiarioDebitoCreditoDAO
+     */
+    public static function getInformeDiarioDebitoCreditoDAO(){
+
+        return new InformeDiarioDebitoCreditoDoctrineDAO();
+    }
 	
 	
 	
@@ -290,6 +318,16 @@ class DAOFactory {
 	
 		return new CajaDoctrineDAO();	
 	}
+
+    /**
+     * DAO para CajaChica.
+     *
+     * @return ICajaChica
+     */
+    public static function getCajaChicaDAO(){
+
+        return new CajaChicaDoctrineDAO();
+    }
 	
 	/**
 	 * DAO para Pago.
@@ -444,4 +482,24 @@ class DAOFactory {
 	
 		return new MovimientoPedidoDoctrineDAO();	
 	}
+
+    /**
+     * DAO para Transferencia.
+     *
+     * @return ITransferencia
+     */
+    public static function getTransferenciaDAO(){
+
+        return new TransferenciaDoctrineDAO();
+    }
+
+    /**
+     * DAO para MovimientoTransferencia.
+     *
+     * @return IMovimientoTransferencia
+     */
+    public static function getMovimientoTransferenciaDAO(){
+
+        return new MovimientoTransferenciaDoctrineDAO();
+    }
 }

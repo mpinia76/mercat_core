@@ -16,7 +16,8 @@ use Cose\utils\Logger;
  * 					  "gasto" = "MovimientoGasto",
  * 					  "actualizacion" = "MovimientoActualizacion",	
  * 					  "pago" = "MovimientoPago",
- * 					  "pedido" = "MovimientoPedido"})
+ * 					  "pedido" = "MovimientoPedido",
+ *                    "transferencia" = "MovimientoTransferencia"})
  * 
  * @author Marcos
  * @since 09-03-2018

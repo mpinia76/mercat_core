@@ -1,21 +1,32 @@
 <?php
-namespace Lpnklf\Core\service;
+namespace Mercat\Core\service;
 
 
-use Lpnklf\Core\model\MovimientoCaja;
+use Mercat\Core\model\MovimientoCuenta;
 
-use Lpnklf\Core\model\Caja;
+use Mercat\Core\model\Empleado;
+use Mercat\Core\model\Caja;
 
 use Cose\Crud\service\ICrudService;
+use Cose\Security\model\User;
 
 /**
  * interfaz para el servicio de caja
  *  
  * @author Marcos
- * @since 21-03-2018
+ * @since 12-10-2022
  *
  */
 interface ICajaService extends ICrudService {
 	
+	function getCajasAbiertas( \Datetime $fecha = null );
+	
+	function getCajasFecha( \Datetime $fecha );
+	
+	function getCajaAbiertaByEmpleado(Empleado $empleado);
+	
+	function cerrarCaja(Caja $caja, User $user);
+	
+	function abrirCaja( Caja $caja, User $user );
 
 }
