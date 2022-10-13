@@ -56,10 +56,10 @@ class CuentaDoctrineDAO extends CrudDAO implements ICuentaDAO{
 			$queryBuilder->andWhere( "c.numero = '$numero'");
 		}
 		
-		$fecha = $criteria->getFecha();
+		/*$fecha = $criteria->getFecha();
 		if( !empty($fecha) ){
 			$queryBuilder->andWhere( "c.fecha = '" . $fecha->format("Y-m-d") . "'");
-		}
+		}*/
 		
 		
 	}	

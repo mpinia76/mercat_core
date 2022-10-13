@@ -65,6 +65,8 @@ use Mercat\Core\service\impl\ProveedorServiceImpl;
 
 use Mercat\Core\service\impl\MovimientoPedidoServiceImpl;
 
+use Mercat\Core\service\impl\MovimientoCuentaServiceImpl;
+
 use Mercat\Core\service\impl\TransferenciaServiceImpl;
 
 use Mercat\Core\service\impl\MovimientoTransferenciaServiceImpl;
@@ -256,17 +258,27 @@ class ServiceFactory {
 	/**
 	 * Service para MovimientoGasto.
 	 * 
-	 * @return IMovimientoCuentaService
+	 * @return IMovimientoGastoService
 	 */
 	public static function getMovimientoGastoService(){
 	
 		return new MovimientoGastoServiceImpl();	
 	}
+
+    /**
+     * Service para MovimientoCuenta.
+     *
+     * @return IMovimientoCuentaService
+     */
+    public static function getMovimientoCuentaService(){
+
+        return new MovimientoCuentaServiceImpl();
+    }
 	
 	/**
 	 * Service para Venta.
 	 * 
-	 * @return IMovimientoCuentaService
+	 * @return IVentaService
 	 */
 	public static function getVentaService(){
 	

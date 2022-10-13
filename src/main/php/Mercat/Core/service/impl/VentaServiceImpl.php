@@ -155,7 +155,7 @@ class VentaServiceImpl extends CrudService implements IVentaService {
 
 		}
 		$comision=0;
-		$vendedor = DAOFactory::getVendedorDAO()->get( $venta->getVendedor()->getOid() );
+		/*$vendedor = DAOFactory::getVendedorDAO()->get( $venta->getVendedor()->getOid() );
 
 		if ($vendedor->getComision()) {
 			$cuentaComision = MercatUtils::getCuentaUnica();
@@ -172,7 +172,7 @@ class VentaServiceImpl extends CrudService implements IVentaService {
 			$movimiento->setUser($user);
 
 			ServiceFactory::getMovimientoVentaService()->add( $movimiento );
-		}
+		}*/
 
 		$venta->setComision( $comision );
 
@@ -204,7 +204,7 @@ class VentaServiceImpl extends CrudService implements IVentaService {
 
 		$movimiento->setConcepto( MercatUtils::getConceptoMovimientoVenta() );
 		$movimiento->setUser($user);
-        if(!MercatUtils::isAdmin($user)){
+        /*if(!MercatUtils::isAdmin($user)){
 		//if ($user->getUsername()=='melisa'){
 		    $formaPago=($cuenta->getOid()==1)?'Efectivo':'Tarjeta';
 		    $estado='';
@@ -221,7 +221,7 @@ class VentaServiceImpl extends CrudService implements IVentaService {
                     break;
             }
             MercatUtils::send_whatsapp($user->getUsername().' cobró la venta '.$venta->getOid().'\nCliente: '.$venta->getCliente()->getNombre().'\nMonto: '.MercatUtils::formatMontoToView($venta->getMonto()).'\nForma de pago: '.$formaPago.'\nEstado: '.$estado.'\nObservaciones: '.$venta->getObservaciones());
-        }
+        }*/
 
 		ServiceFactory::getMovimientoVentaService()->add( $movimiento );
 
@@ -513,7 +513,7 @@ class VentaServiceImpl extends CrudService implements IVentaService {
 		}
 
 		$comision=0;
-		$vendedor = DAOFactory::getVendedorDAO()->get( $venta->getVendedor()->getOid() );
+		/*$vendedor = DAOFactory::getVendedorDAO()->get( $venta->getVendedor()->getOid() );
 
 		if ($vendedor->getComision()) {
 			$cuentaComision = MercatUtils::getCuentaUnica();
@@ -530,7 +530,7 @@ class VentaServiceImpl extends CrudService implements IVentaService {
 			$movimiento->setUser($user);
 
 			ServiceFactory::getMovimientoVentaService()->add( $movimiento );
-		}
+		}*/
 
 		$venta->setComision( $comision );
 
@@ -569,7 +569,7 @@ class VentaServiceImpl extends CrudService implements IVentaService {
 		$movimiento->setConcepto( MercatUtils::getConceptoMovimientoVenta() );
 		$movimiento->setUser($user);
 
-        if(!MercatUtils::isAdmin($user)){
+        /*if(!MercatUtils::isAdmin($user)){
         //if ($user->getUsername()=='melisa'){
             $estado='';
             switch ($venta->getEstado()) {
@@ -585,7 +585,7 @@ class VentaServiceImpl extends CrudService implements IVentaService {
                     break;
             }
             MercatUtils::send_whatsapp($user->getUsername().' cobró la venta '.$venta->getOid().'\nCliente: '.$venta->getCliente()->getNombre().'\nMonto: '.MercatUtils::formatMontoToView($venta->getMonto()).'\nForma de pago: Cta. Cte.\nEstado: '.$estado.'\nObservaciones: '.$venta->getObservaciones());
-        }
+        }*/
 
 		ServiceFactory::getMovimientoVentaService()->add( $movimiento );
 
