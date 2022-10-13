@@ -86,7 +86,7 @@ class InformeDiarioDebitoCreditoServiceImpl extends CrudService implements IInfo
 				
 				$asunto = "Depositar - Banco: " . $banco->__toString();
 			
-				MercatUtils::enviarEmail(MercatUtils::CTS_NOMBRE_EMAIL_NOTIFICACIONES, MercatUtils::CTS_EMAIL_NOTIFICACIONES, $asunto, $mensaje);			
+				MercatUtils::enviarEmail(MercatUtils::MERCAT_NOMBRE_EMAIL_NOTIFICACIONES, MercatUtils::MERCAT_EMAIL_NOTIFICACIONES, $asunto, $mensaje);
 			
 			}
 			
@@ -149,7 +149,7 @@ class InformeDiarioDebitoCreditoServiceImpl extends CrudService implements IInfo
 			$mensaje .= "<br /> <br />Faltan: " . MercatUtils::formatMontoToView( $monto - $origen->getSaldo() );
 			
 			$asunto = "Depositar URGENTE - Banco: " . $origen->__toString();
-			MercatUtils::enviarEmail(MercatUtils::CTS_NOMBRE_EMAIL_NOTIFICACIONES, MercatUtils::CTS_EMAIL_NOTIFICACIONES, $asunto, $mensaje);
+			MercatUtils::enviarEmail(MercatUtils::MERCAT_NOMBRE_EMAIL_NOTIFICACIONES, MercatUtils::MERCAT_EMAIL_NOTIFICACIONES, $asunto, $mensaje);
 			
 		}else{
 			$transferencia = new Transferencia();
