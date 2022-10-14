@@ -355,15 +355,16 @@ ORDER BY canttotal DESC";
 
 
 
-            $RAW_QUERY="SELECT mercat_cliente.oid, mercat_cliente.nombre, sum(mercat_venta.montoPagado) AS saldo
+            $RAW_QUERY="SELECT mercat_cliente.oid, mercat_persona.nombre, sum(mercat_venta.montoPagado) AS saldo
 FROM mercat_venta
 INNER JOIN mercat_cliente ON mercat_venta.cliente_oid = mercat_cliente.oid
+INNER JOIN mercat_persona ON mercat_persona.oid = mercat_cliente.oid
 
 WHERE mercat_cliente.oid != 1 AND mercat_venta.estado != 4";
 
 
 
-            $vendedor = $criteria->getVendedor();
+            /*$vendedor = $criteria->getVendedor();
             if( !empty($vendedor) && $vendedor!=null){
                 if (is_object($vendedor)) {
                     $vendedorOid = $vendedor->getOid();
@@ -372,7 +373,7 @@ WHERE mercat_cliente.oid != 1 AND mercat_venta.estado != 4";
                 }
 
 
-            }
+            }*/
             $fechaDesde = $criteria->getFechaDesde();
             if( !empty($fechaDesde) ){
                 $RAW_QUERY.=" AND mercat_venta.fecha >= '" . $fechaDesde->format("Y-m-d") . "'";

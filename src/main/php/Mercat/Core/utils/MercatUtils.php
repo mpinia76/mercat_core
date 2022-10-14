@@ -46,6 +46,8 @@ class MercatUtils {
 
     const MERCAT_CUENTA_CAJA_CHICA = 1;
 
+    const MERCAT_CUENTA_BAPRO = 20;
+
 	const MERCAT_CONCEPTO_MOVIMIENTO_GASTO= 2;
 	const MERCAT_CONCEPTO_MOVIMIENTO_ANULACIONGASTO= 3;
 	const MERCAT_CONCEPTO_MOVIMIENTO_VENTA= 4;
@@ -774,6 +776,11 @@ class MercatUtils {
     public static function getCuentaCajaChica(){
 
         return ServiceFactory::getCajaChicaService()->get( self::MERCAT_CUENTA_CAJA_CHICA );
+    }
+
+    public static function getCuentaBAPRO(){
+
+        return ServiceFactory::getBancoService()->get( self::MERCAT_CUENTA_BAPRO );
     }
 
 	public static function getConceptoGastoVarios(){
